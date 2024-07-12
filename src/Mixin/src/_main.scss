@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* ----------------------_mixins.scss--------------------------- */
+// 1. Operator
+// 2. variable
+// 3. nested &- css
+// 4. mixins- use for common code using @mixin and then include
+
+/* ----------------------__variables.scss--------------------------- */
+
+
+/* ----------------------__main.scss--------------------------- */
+@import "./mixins";
+@import "./variable";
+
+
+@mixin headercode($bgcolor, $colorchng) {
+  width: 100% - 20%; 
+  height: 50vh + 70vh - 20vh;
+  margin: 0 auto;
+  background-color: $bgcolor;
+  color: $colorchng;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  @include headercode(#222f3e, #feca57);
+
+  h1 {
+    @include commoncode;
+    &:hover {
+      color: $hovercolor;
+    }
+
+    &::after {
+      content: " Family ";
+    }
+  }
+
+  p {
+    @include commoncode;
+  }
+}
+
+.secheader {
+  @include headercode(#10ac84, #fff);
+}
+
+
